@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!-- index.html -->
+<!-- Author: Tayven Stover -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {{ map_header|safe }}
+    <link href="{{ url_for('static', path='/styles.css') }}" rel="stylesheet">
+    <title>JourneyGenius</title>
+</head>
+<body>
+    {% include 'header.html' %}
+    <div id="bento-container">
+        <div id="map-container" class="bento-item">
+            {{ map_body_html|safe }}
+        </div>
+        <div id="map-details" class="bento-item">
+            <h2>GMU Sudan Analytics</h2>
+            <p>Click on a country to see its data.</p>
+            <p>Click on the map to see the world data.</p>
+        </div>
+        <div id="footer-controller" class="bento-item">
+            <div id="footer-top-container">
+                <div id="destination-container">
+                    <input type="text" placeholder="Depart" label="Depart" class="footer-input">
+                    <div class="arrow">
+                        >
+                    </div>
+                    <input type="text" placeholder="Arrive" label="Arrive" class="footer-input">
+                </div>
+                <button id="go-button">Go</button>
+            </div>
+            <div>
+
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        {{ map_script|safe }}
+    </script>
+    <script type="module" src="{{ url_for('static', path='/index.js') }}"></script>
+</body>
+</html>
